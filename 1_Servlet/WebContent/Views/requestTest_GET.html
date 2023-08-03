@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<style>
+		ul{
+			list-style: none;
+			line-height: 250%;
+		}
+	</style>
+
+<body>
+	<h1>Get 방식으로 요청 후 응답 페이지 보기</h1>
+
+	<p>
+		특징 1. GET방식으로 요청 시 URL의 HEADER영역에 데이터들을 포함시켜서 요청 <br>
+		=> 사용자가 입력한 값(데이터)들이 url에 노출됨 <br>
+		=> 보안 유지가 불가능함 <br>
+		=> 즉, 로그인이나 회원가입 같은 경우 GET방식이 부적합 하다. <br><br>
+
+		특징 2. Header영역은 전송하는 길이에 제한이 있다. <br>
+		=> 방대한 데이터를 담았을 경우 초과된 데이터는 절단돼서 넘어간다. <br>
+		=> 즉, 게시판 작성 같은 경우 GET 방식이 부적합하다. <br><br>
+
+		특징3. 장점이라고 한다면 url에 데이터가 노출되어 있기 때문에 즐겨찾기(북마크)가 가능하다.
+				(url 저장해놨다가 재요청) <br>
+				=> 즉, 검색 기능 같은 GET 방식이 적합
+
+		
+
+	</p>
+	
+	<h2>개인 정보 입력</h2>
+	<p>당신의 개인정보를 입력해주세요. 입력 후 확인 버튼 눌러주세요</p>
+	
+	<!-- 
+		form 태그 내의 제출버튼(submit 타입) 클릭 시
+		form 태그 내의 속성 중에 action에 작성 된 url 로 요청됨(요청시 상용자가 입력한 값들로 넘어감)
+		즉, Controller(Servlet)를 호출한다고 생각하면 됨
+		
+		Servlet 요청 같은 경우 반드시 contextPath(/1_Servlet) 뒤에 작성 되어야 함!
+		http://localhost:8888/1_Servlet/test1.do
+		 
+		절대경로방식 (/로 시작되는 경로) : localhost:8888 뒤에 action 값이 붙어지면서 요청
+		상대경로방식 (문구로 시작되는 경로) : 현재 이 페이지가 보여질때의 url의 마지막 / 로 부터 그 뒤에 action 값이 붙여지면서 요청
+		 
+	 -->
+	
+	
+	<form action="/1_Servlet/test1.do" method="GET"> 
+		<ul>
+			<li>
+				이름 : <input type="text" name="name" id="">
+			</li>
+			<li>
+				성별 : 
+				<input type="radio" name="gender" value="M" id=""> 남자 <!--name이 동일해야 중복 선택이 안된다.-->
+				<input type="radio" name="gender" value="F" id=""> 여자
+			</li>
+			<li>
+				나이 : <input type="number" name="age" id="">
+			</li>
+			<li>
+				거주지 :
+				<select name="city" id="">
+					<option>서울</option>
+					<option>경기도</option>
+					<option>강원도</option>
+					<option>충청도</option>
+					<option>경상도</option>
+					<option>전라도</option>
+				</select>
+			</li>
+			<li>
+				키 : <input type="range" name="height" min="140" max="200">
+			</li>
+			<li>
+				좋아하는 음식(모두 고르시오) : 
+				<input type="checkbox" name="food" value="한식">한식
+				<input type="checkbox" name="food" value="중식">중식
+				<input type="checkbox" name="food" value="일식">일식
+				<input type="checkbox" name="food" value="양식">양식
+				<input type="checkbox" name="food" value="분식">분식
+			</li>
+			<li>
+				<input type="submit">
+				<input type="reset">
+			</li>
+		</ul>
+	</form>
+	
+</body>
+</html>
