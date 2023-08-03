@@ -14,7 +14,7 @@
   <!--
   	* welcome-file : url로 해당 이 애플리케이션 루트로 요청 시 제일 먼저 보여지게 되는 메인페이지 지정해놓은 것
   					http://구동중인 서버의 ip주소:포트번호/애플리케이션의 루트명
-  					http://localhost.8888/1_Servlet
+  					http://localhost:8888/1_Servlet
   					
   					단, 해당 welcome file은 webContent/ 에 위치해야만 잘 찾아서 보여짐!!
    -->
