@@ -61,7 +61,7 @@ public class RequestGetServlet extends HttpServlet {
 		System.out.println("city : " + city);
 		System.out.println("height : " + height);
 		
-		//System.out.println("foods : " + foods); //주소값 나옴
+		//System.out.println("foods : " + foods); //배열이여서 그낭 찍으면 주소값 나옴
 		//System.out.println("foods : " + foods[0]); //이건 오류날 수 도 있음!!null
 		
 		if(foods == null) {
