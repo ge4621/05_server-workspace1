@@ -51,7 +51,7 @@ public class RequestGetServlet extends HttpServlet {
 		String city = request.getParameter("city"); //"경기도"
 		double height = Double.parseDouble(request.getParameter("height"));//"160" => 160.0
 		
-		//체그박스와 같이 복수개의 벨류값들을 뽑고자 할 때
+		//체크박스와 같이 복수개의 벨류값들을 뽑고자 할 때
 		String[] foods = request.getParameterValues("food");//["한식","일식"] | null
 		
 		
@@ -64,9 +64,9 @@ public class RequestGetServlet extends HttpServlet {
 		//System.out.println("foods : " + foods); //배열이여서 그낭 찍으면 주소값 나옴
 		//System.out.println("foods : " + foods[0]); //이건 오류날 수 도 있음!!null
 		
-		if(foods == null) {
+		if(foods == null) {//체크박스 선택이없을 경우
 			System.out.println("foods : 없음");
-		}else{
+		}else{//선택이 있을 경우
 			System.out.println("foods: " + String.join("/", foods));
 			
 		}
@@ -85,7 +85,7 @@ public class RequestGetServlet extends HttpServlet {
 		//위의 요청 처리 후 성공했다는 가정하에 사용자가 보게 될 응답 페이지(html) 만들어서 전송
 		//즉, 여기 "Java 코드 내에" 사용자가 보게될 응답 html 구문 작성할까!!
 		
-		//장접 : Java 코드 내에 작성하기 때문에 반복무느 조건문, 유용한 메소드 같은 걸 활용할 수 있다.
+		//장접 : Java 코드 내에 작성하기 때문에 반복문, 조건문, 유용한 메소드 같은 걸 활용할 수 있다.
 		//단점 : 불편함, 복잡함, 혹시라도 후에 html 수정한다면 Java코드를 수정하는거라 다시 반영하고자 한다면 서버를 재실행 해야됨
 		
 		//* response 객체를 통해 사용자에게 html(응답화면) 전달
@@ -96,7 +96,7 @@ public class RequestGetServlet extends HttpServlet {
 		//2) 응답하고자 하는 사용자(요청했던 사용자)와 의 스트림(클라이언트와의 통로) 생성
 		PrintWriter out = response.getWriter();
 		
-		//3) 저 스트림을 통해 응압 html구문을 한줄씩 출력
+		//3) 저 스트림을 통해 응답 html구문을 한줄씩 출력
 		out.println("<html>");
 		
 		out.println("<head>");
